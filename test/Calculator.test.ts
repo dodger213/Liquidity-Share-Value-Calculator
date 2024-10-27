@@ -2,12 +2,12 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 describe("LiquidityValueCalculator", function () {
-  let liquidityCalculator;
-  let factory;
-  let tokenA;
-  let tokenB;
-  let pair;
-  let owner;
+  let liquidityCalculator: any;
+  let factory: any;
+  let tokenA: any;
+  let tokenB: any;
+  let pair: any;
+  let owner: any;
 
   beforeEach(async function () {
     // Get signers
