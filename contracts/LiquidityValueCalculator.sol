@@ -32,5 +32,8 @@ contract LiquidityValueCalculator is ILiquidityValueCalculator {
         address tokenA,
         address tokenB
     ) external view returns (uint tokenAAmount, uint tokenBAmount) {
+      (uint reserveA, uint reserveB, uint totalLiquidity) = pairInfo(tokenA, tokenB);
+      tokenAAmount = (liquidity * reserveA) / totalLiquidity;
+      tokenBAmount = (liquidity * reserveB) / totalLiquidity;
     }
 }
