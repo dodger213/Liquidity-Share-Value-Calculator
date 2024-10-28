@@ -23,7 +23,9 @@ contract LiquidityValueCalculator is ILiquidityValueCalculator {
             UniswapV2Library.pairFor(factory, tokenA, tokenB)
         );
         (uint reserve0, uint reserve1, ) = pair.getReserves();
-        (reserveA, reserveB) = tokenA < tokenB ? (reserve0, reserve1) : (reserve1, reserve0);
+        (reserveA, reserveB) = tokenA < tokenB
+            ? (reserve0, reserve1)
+            : (reserve1, reserve0);
         totalLiquidity = pair.totalSupply();
     }
 
@@ -32,8 +34,11 @@ contract LiquidityValueCalculator is ILiquidityValueCalculator {
         address tokenA,
         address tokenB
     ) external view returns (uint tokenAAmount, uint tokenBAmount) {
-      (uint reserveA, uint reserveB, uint totalLiquidity) = pairInfo(tokenA, tokenB);
-      tokenAAmount = (liquidity * reserveA) / totalLiquidity;
-      tokenBAmount = (liquidity * reserveB) / totalLiquidity;
+        (uint reserveA, uint reserveB, uint totalLiquidity) = pairInfo(
+            tokenA,
+            tokenB
+        );
+        tokenAAmount = (liquidity * reserveA) / totalLiquidity;
+        tokenBAmount = (liquidity * reserveB) / totalLiquidity;
     }
 }
