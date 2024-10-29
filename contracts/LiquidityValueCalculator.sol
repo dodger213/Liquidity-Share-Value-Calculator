@@ -11,6 +11,10 @@ contract LiquidityValueCalculator is ILiquidityValueCalculator {
         factory = factory_;
     }
 
+    /**
+     * @dev Returns the pair info of tokenA and tokenB
+     * @param tokenA The amount of liquidity to compute the value of
+     */
     function pairInfo(
         address tokenA,
         address tokenB
@@ -29,6 +33,9 @@ contract LiquidityValueCalculator is ILiquidityValueCalculator {
         totalLiquidity = pair.totalSupply();
     }
 
+    /**
+     * @dev Computes the value of a liquidity share in terms of tokenA and tokenB
+     */
     function computeLiquidityShareValue(
         uint liquidity,
         address tokenA,
