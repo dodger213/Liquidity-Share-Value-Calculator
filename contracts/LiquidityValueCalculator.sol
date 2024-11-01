@@ -7,6 +7,7 @@ import "@uniswap/v2-periphery/contracts/libraries/UniswapV2Library.sol";
 
 contract LiquidityValueCalculator is ILiquidityValueCalculator {
     address public factory;
+    
     constructor(address factory_) {
         factory = factory_;
     }
@@ -14,6 +15,7 @@ contract LiquidityValueCalculator is ILiquidityValueCalculator {
     /**
      * @dev Returns the pair info of tokenA and tokenB
      * @param tokenA The amount of liquidity to compute the value of
+     * @param tokenB The amount of liquidity to compute the value of
      */
     function pairInfo(
         address tokenA,
