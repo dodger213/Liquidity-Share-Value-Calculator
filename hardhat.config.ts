@@ -3,6 +3,9 @@ import "@nomicfoundation/hardhat-toolbox";
 
 const infuraKey: string = process.env.INFURA_API_KEY as string;
 const privateKey: string = process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY as string : "";
+const etherscanKey: string = process.env.ETHERSCAN_KEY ? process.env.ETHERSCAN_KEY as string : "";
+const basescanKey: string = process.env.BASESCAN_KEY ? process.env.BASESCAN_KEY as string : "";
+const bscscanKey: string = process.env.BSCSCAN_KEY ? process.env.BSCSCAN_KEY as string : "";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -42,12 +45,12 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      mainnet: "ED2NED96C214Y891MR98PZZ1Q45VTFYZRV",
-      sepolia: "ED2NED96C214Y891MR98PZZ1Q45VTFYZRV",
-      basemainnet: "1SZX9N4CQNAX489BHPEW27C2FG5PPP4MB1",
-      baseSepolia: "1SZX9N4CQNAX489BHPEW27C2FG5PPP4MB1", // etherscan: ED2NED96C214Y891MR98PZZ1Q45VTFYZRV BSC: 1UME8V5UP4AZHYDF7RWC78GTIXXRPJHTQY Base: 1SZX9N4CQNAX489BHPEW27C2FG5PPP4MB1
-      holesky: "ED2NED96C214Y891MR98PZZ1Q45VTFYZRV",
-      bscTestnet: "1UME8V5UP4AZHYDF7RWC78GTIXXRPJHTQY"
+      mainnet: etherscanKey,
+      sepolia: etherscanKey,
+      basemainnet: basescanKey,
+      baseSepolia: basescanKey, // etherscan: ED2NED96C214Y891MR98PZZ1Q45VTFYZRV BSC: 1UME8V5UP4AZHYDF7RWC78GTIXXRPJHTQY Base: 1SZX9N4CQNAX489BHPEW27C2FG5PPP4MB1
+      holesky: etherscanKey,
+      bscTestnet: bscscanKey
     },
   },
   gasReporter: {
